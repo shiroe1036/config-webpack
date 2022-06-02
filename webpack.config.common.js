@@ -4,13 +4,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    principale: "./src/index.js",
+    contact: "./src/contact/index-contact.js"
+  },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       inject: true,
@@ -35,6 +39,10 @@ module.exports = {
         test: /\.(scss|css)$/,
         use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      }
     ],
   },
 };

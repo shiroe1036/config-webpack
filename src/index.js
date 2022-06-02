@@ -15,7 +15,9 @@ const heading = document.createElement("h1");
 heading.textContent = "Interesting!";
 
 console.log("refresh fdf")
+const div = document.createElement('div');
+div.innerHTML=`<img src="${example}" width="400px" height="150px">`;
 
 // Append heading node to the DOM
 const app = document.querySelector("#root");
-app.append(heading, p);
+app.append(heading, p, div);
